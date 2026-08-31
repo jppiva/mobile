@@ -25,23 +25,23 @@ const api = axios.create({
   },
 });
 
-// ---------- POST: criar um herói novo ----------
+// ---------- POST: criar um jogo novo ----------
 // Payload confirmado pra este tema: title, description e imageUrl
-// (genéricos) + estudio, plataforma e grupo_principal (específicos do
-// tema heróis). category, year, ano_de_estreia, tipo_de_heroi e
-// situacao_do_heroi aparecem na documentação, mas não fazem parte do
+// (genéricos) + Ano_lancamento, plataforma e grupo_principal (específicos do
+// tema heróis). category, year, ano_de_estreia, tipo_de_Jogo e
+// situacao_do_Jogo aparecem na documentação, mas não fazem parte do
 // corpo que a rota de criação realmente aceita.
-export default function ogosCriarScreen() {
+export default function JogosCriarScreen() {
   const [titulo, setTitulo] = useState("");
-  const [descricao, setDescricao] = useState("");
+  const [genero, setGenero] = useState("");
   const [imagemUrl, setImagemUrl] = useState("");
-  const [estudio, setestudio] = useState("");
-  const [plataforma, setplataforma] = useState("");
-  const [genero, setgenero] = useState("");
+  const [ano_lancamento, setAno_lancamento] = useState("");
+  const [plataforma, setPlataforma] = useState("");
+  const [desenvolvedora, setDesenvolvedora] = useState("");
 
   const [enviando, setEnviando] = useState(false);
 
-  async function criarHeroi() {
+  async function criarJogo() {
     if (!titulo) {
       Alert.alert("Preencha pelo menos o título.");
       return;
@@ -49,25 +49,25 @@ export default function ogosCriarScreen() {
 
     setEnviando(true);
     try {
-      const resposta = await api.post("/api/ogos", {
+      const resposta = await api.post("/api/jogos", {
         title: titulo,
-        description: descricao,
+        genero: genero,
         imageUrl: imagemUrl,
-        estudio,
-        plataforma,
-        grupo_principal: genero,
+        ano_lancamento: Number(ano_lancamento),
+        plataforma: plataforma,
+        desenvolvedora: desenvolvedora,
       });
 
-      Alert.alert("Herói criado!", resposta.data.title);
+      Alert.alert("Jogo criado!", resposta.data.title);
       setTitulo("");
-      setDescricao("");
+      setGenero("");
       setImagemUrl("");
-      setestudio("");
-      setplataforma("");
-      setgenero("");
+      setAno_lancamento("");
+      setPlataforma("");
+      setDesenvolvedora("");
     } catch (e) {
       Alert.alert(
-        "Não deu pra criar o herói",
+        "Não deu pra criar o jogo",
         "A API respondeu com erro. Confere se todos os campos estão certinhos e tenta de novo."
       );
     } finally {
@@ -79,8 +79,8 @@ export default function ogosCriarScreen() {
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.conteudo}>
         <View style={styles.header}>
-          <Text style={styles.tituloPagina}>Criar herói</Text>
-          <Text style={styles.subtitulo}>POST /api/ogos</Text>
+          <Text style={styles.tituloPagina}>Criar jogo</Text>
+          <Text style={styles.subtitulo}>POST /api/jogos</Text>
         </View>
 
         <Text style={styles.rotulo}>Título</Text>
@@ -88,15 +88,14 @@ export default function ogosCriarScreen() {
           style={styles.campo}
           value={titulo}
           onChangeText={setTitulo}
-          placeholder="Ex: Batman"
+          placeholder="Ex: Fortnite"
         />
-
         <Text style={styles.rotulo}>Descrição</Text>
         <TextInput
           style={styles.campo}
-          value={descricao}
-          onChangeText={setDescricao}
-          placeholder="Ex: Herói vigilante de Gotham City."
+          value={genero}
+          onChangeText={setGenero}
+          placeholder="Ex: Jogo FPS"
         />
 
         <Text style={styles.rotulo}>URL da imagem</Text>
@@ -104,37 +103,37 @@ export default function ogosCriarScreen() {
           style={styles.campo}
           value={imagemUrl}
           onChangeText={setImagemUrl}
-          placeholder="Ex: https://exemplo.com/batman.jpg"
+          placeholder="Ex: https://exemplo.com/fortnite.jpg"
         />
 
-        <Text style={styles.secao}>Campos específicos do tema heróis</Text>
 
-        <Text style={styles.rotulo}>estudio</Text>
+
+        <Text style={styles.rotulo}>Ano de lançamento</Text>
         <TextInput
           style={styles.campo}
-          value={estudio}
-          onChangeText={setestudio}
-          placeholder="Ex: DC"
+          value={ano_lancamento}
+          onChangeText={setAno_lancamento}
+          placeholder="Ex: Epic Games"
         />
 
-        <Text style={styles.rotulo}>plataforma</Text>
+        <Text style={styles.rotulo}>Plataforma</Text>
         <TextInput
           style={styles.campo}
           value={plataforma}
-          onChangeText={setplataforma}
-          placeholder="Ex: DC Comics"
+          onChangeText={setPlataforma}
+          placeholder="Ex: Multiplataformas"
         />
 
-        <Text style={styles.rotulo}>Grupo principal</Text>
+        <Text style={styles.rotulo}>Desenvolvedora</Text>
         <TextInput
           style={styles.campo}
-          value={genero}
-          onChangeText={setgenero}
-          placeholder="Ex: Batfamily"
+          value={desenvolvedora}
+          onChangeText={setDesenvolvedora}
+          placeholder="Ex: FPS"
         />
 
-        <Pressable style={styles.botao} onPress={criarHeroi} disabled={enviando}>
-          <Text style={styles.botaoTexto}>{enviando ? "Enviando..." : "Criar herói"}</Text>
+        <Pressable style={styles.botao} onPress={criarJogo} disabled={enviando}>
+          <Text style={styles.botaoTexto}>{enviando ? "Enviando..." : "Criar jogo"}</Text>
         </Pressable>
       </ScrollView>
     </SafeAreaView>
@@ -142,7 +141,7 @@ export default function ogosCriarScreen() {
 }
 
 const styles = StyleSheet.create({
-  safeArea: { flex: 1, backgroundColor: "#f8fbff" },
+  safeArea: { flex: 1, backgroundColor: "#759fd4" },
   conteudo: { padding: 24, paddingBottom: 48 },
   header: { marginBottom: 16 },
   tituloPagina: { fontSize: 24, fontWeight: "800", color: "#102542" },
