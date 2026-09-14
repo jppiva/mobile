@@ -54,6 +54,13 @@ export default function TabsLayout() {
           headerTitle: "api-jogos",
         }}
       />
+      <Tabs.Screen
+        name="put"
+        options={{
+          title: "put",
+          headerTitle: "put",
+        }}
+      />
     </Tabs>
   );
 }

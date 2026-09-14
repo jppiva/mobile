@@ -11,7 +11,7 @@ export default function HomeScreen() {
                 <View style={styles.hero}>
                     <Image
                         source={{
-                            uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6SpWA6Sk8Vo55RMP3kppjM1DfsMQbNr_kQntfkcEphg&s=10',
+                            uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrRVZcDICCjVizJ_RECR2eQtlDaoLaldLhoTVAgk05JA&s=10',
                         }}
                         style={styles.logo}
                         resizeMode='contain'
@@ -44,7 +44,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
     safeArea: {
         flex: 1,
-        backgroundColor: '#a09b9b',
+        backgroundColor: '#111111',
     },
     container: {
         flex: 1,
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
         gap: 10,
         padding: 24,
         borderRadius: 24,
-        backgroundColor: '#029716',
+        backgroundColor: '#D96B27',
     },
     logo: {
         width: 120,
@@ -68,42 +68,42 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         letterSpacing: 1,
         textTransform: 'uppercase',
-        color: '#fd7a00',
+        color: '#000000',
         textAlign: 'center',
     },
     title: {
         fontSize: 32,
         fontWeight: '800',
-        color: '#fd7a00',
+        color: '#000000',
         textAlign: 'center',
     },
     description: {
         fontSize: 16,
         lineHeight: 24,
-        color: '#fd7a00',
+        color: '#000000',
         textAlign: 'center',
     },
     card: {
         gap: 8,
         padding: 20,
         borderRadius: 20,
-        backgroundColor: '#029716',
+        backgroundColor: '#D96B27',
     },
     cardTitle: {
         fontSize: 18,
         fontWeight: '700',
-        color: '#fd7a00',
+        color: '#000000',
     },
     cardItem: {
         fontSize: 15,
-        color: '#fd7a00',
+        color: '#000000',
     },
     button: {
         paddingVertical: 16,
         paddingHorizontal: 20,
         borderRadius: 16,
         alignItems: 'center',
-        backgroundColor: '#fd7a00',
+        backgroundColor: '#D96B27',
     },
     buttonText: {
         fontSize: 6,
