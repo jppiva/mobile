@@ -59,7 +59,7 @@ export default function JogosExcluirScreen() {
   // Sempre confirma antes de apagar de verdade — não tem como desfazer.
   function confirmarExclusao(jogos) {
     Alert.alert(
-      "Excluir herói",
+      "Excluir jogos",
       `Tem certeza que quer excluir "${jogos.title}"? Essa ação não pode ser desfeita.`,
       [
         { text: "Cancelar", style: "cancel" },
@@ -83,7 +83,7 @@ export default function JogosExcluirScreen() {
       setJogos((atual) => atual.filter((item) => item.id !== id));
     } catch (e) {
       Alert.alert(
-        "Não deu pra excluir o herói",
+        "Não deu pra excluir o jogos",
         "A API respondeu com erro. Tenta de novo em instantes."
       );
     } finally {
@@ -95,7 +95,7 @@ export default function JogosExcluirScreen() {
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.conteudo}>
         <View style={styles.header}>
-          <Text style={styles.tituloPagina}>Excluir herói</Text>
+          <Text style={styles.tituloPagina}>Excluir jogos</Text>
           <Text style={styles.subtitulo}>DELETE /api/jogos/:id</Text>
         </View>
 

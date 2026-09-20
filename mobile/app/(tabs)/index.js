@@ -1,5 +1,5 @@
 import { Link } from 'expo-router';
-import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, StyleSheet, Text, View,ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const codeverseLogo = require('../../assets/codeverse-logo.png');
@@ -7,7 +7,7 @@ const codeverseLogo = require('../../assets/codeverse-logo.png');
 export default function HomeScreen() {
     return (
         <SafeAreaView style={styles.safeArea}>
-            <View style={styles.container}>
+            <ScrollView style={styles.container}>
                 <View style={styles.hero}>
                     <Image
                         source={{
@@ -17,26 +17,20 @@ export default function HomeScreen() {
                         resizeMode='contain'
                     />
                     <Text style={styles.eyebrow}>joão pedro piva nogueira</Text>
-                    <Text style={styles.title}>miha pagina sobre mim </Text>
+                    <Text style={styles.title}>pagina sobre mim </Text>
                     <Text style={styles.description}>
-                        Estrutura pronta para o aluno focar em componentes, navegação e lógica de
-                        negócio desde a primeira aula.
+                       Olá! Meu nome é Piva, tenho 17 anos e sou estudante do 3º ano do Ensino Médio no SESI/SENAI. Também faço o curso de Desenvolvimento de Sistemas. Gosto de tecnologia, programação e jogos, e estou sempre buscando aprender coisas novas. Sou uma pessoa que valoriza a responsabilidade e a oportunidade de melhorar cada vez mais.
                     </Text>
                 </View>
 
                 <View style={styles.card}>
-                    <Text style={styles.cardTitle}>O que vem configurado</Text>
-                    <Text style={styles.cardItem}>• JavaScript habilitado</Text>
-                    <Text style={styles.cardItem}>• Rotas com expo-router</Text>
-                    <Text style={styles.cardItem}>• Abas e modal de exemplo</Text>
-                    <Text style={styles.cardItem}>• Scripts para Android, iOS e Web</Text>
+                    <Text style={styles.cardTitle}>O que o piva gosta</Text>
+                    <Text style={styles.cardItem}>• Gosta muito de FNAF</Text>
+                    <Text style={styles.cardItem}>• Chaisaw man</Text>
+                    <Text style={styles.cardItem}>• Jogos</Text>
+                    
                 </View>
-                <Link href='/modal' asChild>
-                    <Pressable style={styles.button}>
-                        <Text style={styles.buttonText}>Abrir modal de exemplo</Text>
-                    </Pressable>
-                </Link>
-            </View>
+            </ScrollView>
         </SafeAreaView>
     );
 }
@@ -57,6 +51,7 @@ const styles = StyleSheet.create({
         padding: 24,
         borderRadius: 24,
         backgroundColor: '#D96B27',
+        margin: 5,
     },
     logo: {
         width: 120,
@@ -88,6 +83,8 @@ const styles = StyleSheet.create({
         padding: 20,
         borderRadius: 20,
         backgroundColor: '#D96B27',
+        marginBottom: 20,
+        margin: 5,
     },
     cardTitle: {
         fontSize: 18,
