@@ -34,20 +34,6 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="sobre"
-        options={{
-          title: "sobre",
-          headerTitle: "cara do piva",
-        }}
-      />
-      <Tabs.Screen
-        name="post"
-        options={{
-          title: "post",
-          headerTitle: "post",
-        }}
-      />
-      <Tabs.Screen
         name="api-jogos"
         options={{
           title: "api-jogos",

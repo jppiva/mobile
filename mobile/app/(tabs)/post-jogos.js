@@ -33,10 +33,11 @@ const api = axios.create({
 // corpo que a rota de criação realmente aceita.
 export default function JogosCriarScreen() {
   const [titulo, setTitulo] = useState("");
+  const [descricao, setDescricao] = useState("");
   const [genero, setGenero] = useState("");
   const [imagemUrl, setImagemUrl] = useState("");
-  const [ano_lancamento, setAno_lancamento] = useState("");
   const [plataforma, setPlataforma] = useState("");
+  const [ano_lancamento, setAno_lancamento] = useState("");
   const [desenvolvedora, setDesenvolvedora] = useState("");
 
   const [enviando, setEnviando] = useState(false);
@@ -51,9 +52,10 @@ export default function JogosCriarScreen() {
     try {
       const resposta = await api.post("/api/jogos", {
         title: titulo,
+        description: descricao,
         genero: genero,
         imageUrl: imagemUrl,
-        ano_lancamento: Number(ano_lancamento),
+        ano_lancamento: ano_lancamento,
         plataforma: plataforma,
         desenvolvedora: desenvolvedora,
       });

@@ -26,13 +26,13 @@ const api = axios.create({
   },
 });
 
-// ---------- DELETE: apagar um herói existente ----------
+// ---------- DELETE: apagar um jogo existente ----------
 export default function JogosExcluirScreen() {
   const [jogos, setJogos] = useState([]);
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState(null);
 
-  // id do herói sendo apagado no momento (ou null, se nenhum) — serve
+  // id do jogo sendo apagado no momento (ou null, se nenhum) — serve
   // só pra desabilitar/trocar o texto do botão certo enquanto o
   // DELETE daquele item específico está em andamento.
   const [excluindoId, setExcluindoId] = useState(null);
@@ -46,7 +46,7 @@ export default function JogosExcluirScreen() {
       });
       setJogos(resposta.data.data);
     } catch (e) {
-      setErro("Não foi possível carregar os heróis. Tenta de novo em instantes.");
+      setErro("Não foi possível carregar os jogos. Tenta de novo em instantes.");
     } finally {
       setCarregando(false);
     }
@@ -57,22 +57,22 @@ export default function JogosExcluirScreen() {
   }, []);
 
   // Sempre confirma antes de apagar de verdade — não tem como desfazer.
-  function confirmarExclusao(heroi) {
+  function confirmarExclusao(jogos) {
     Alert.alert(
       "Excluir herói",
-      `Tem certeza que quer excluir "${heroi.title}"? Essa ação não pode ser desfeita.`,
+      `Tem certeza que quer excluir "${jogos.title}"? Essa ação não pode ser desfeita.`,
       [
         { text: "Cancelar", style: "cancel" },
         {
           text: "Excluir",
           style: "destructive",
-          onPress: () => excluirHeroi(heroi.id),
+          onPress: () => excluirjogos(jogos.id),
         },
       ]
     );
   }
 
-  async function excluirHeroi(id) {
+  async function excluirjogos(id) {
     setExcluindoId(id);
     try {
       // DELETE não manda corpo — só o id na URL, identificando o que apagar.
