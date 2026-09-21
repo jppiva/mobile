@@ -33,6 +33,13 @@ export default function TabsLayout() {
           headerTitle: "put",
         }}
       />
+      <Tabs.Screen
+        name="getById"
+        options={{
+          title: "getById",
+          headerTitle: "getById",
+        }}
+      />
     </Tabs>
   );
 }
